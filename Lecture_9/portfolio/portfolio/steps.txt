@@ -1,0 +1,5 @@
+1 - Start a project
+2 - Create an application
+3 - Add application url to project url configuration
+4.1 - Create urls and views in application
+4.2 - Create a templates Folder and add it to settings
