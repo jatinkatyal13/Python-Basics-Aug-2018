@@ -72,6 +72,11 @@ def add_student(request):
 
     elif request.method == "POST":
         form = StudentForm(request.POST)
+        # form = StudentForm({
+        #     "name": "jatin",
+        #     "age": 100,
+        #     "branch": "cse",
+        # })
         if form.is_valid():
             s = form.save()
             return HttpResponse("Student created with name {}".format(s.name))

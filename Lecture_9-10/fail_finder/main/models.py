@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 class Branch(models.Model):
@@ -8,11 +10,19 @@ class Branch(models.Model):
 
     def __str__ (self):
         return self.name
+
+    class Meta:
+        ordering = ('name',)
         
-class Student(models.Model):
+class Newsletter(models.Model):
     name = models.CharField(max_length = 100)
+
+class Student(models.Model):
+    roll = models.IntegerField(unique=True)
+    name = models.CharField(max_length = 100, default = 'unnamed')
     age = models.IntegerField()
     branch = models.ForeignKey('Branch', on_delete = models.CASCADE)
+    newsletter = models.ForeignKey('Newsletter', on_delete = models.CASCADE)
 
     def __str__ (self):
         return self.name
