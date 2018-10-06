@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <script src="main.js"></script>
+    </head>
+    <body>
+
+        <ul>
+            <li><a href="{% url 'edit_restaurant' pk=restaurant.pk %}">Edit</a></li>
+            <li><a href="{% url 'delete_restaurant' pk=restaurant.pk %}">Delete</a></li>
+        </ul>
+
+        <h1>{{ restaurant.name }}</h1>
+
+        <p>
+            Closing Time: {{ restaurant.closing_time }} <br>
+            Owner: {{ restaurant.owner }} <br>
+            Contact: {{ restaurant.contact }} <br>
+            Address: {{ restaurant.address }}
+        </p>
+
+        <h3>Menu</h3>
+
+        <ul>
+            {% for food in restaurant.food_set.all %}
+                <li>
+                    <a href="{% url 'food' pk=food.pk %}">{{ food }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

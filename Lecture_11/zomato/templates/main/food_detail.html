@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <h1>{{ object.name }}</h1>
+
+        <!-- CUISINE = (
+            (1, 'Chinese'),
+            (2, 'North Indian'),
+            (3, 'South Indian'),
+            (4, 'Italian'),
+        )
+
+        name = models.CharField(max_length = 100)
+        price = models.FloatField()
+        cuisine = models.IntegerField(choices = CUISINE)
+        restaurant = models.ForeignKey('Restaurant', on_delete = models.CASCADE) -->
+
+        <ul>
+            <li>Price: {{ object.price }}</li>
+            <li>Cuisune: {{ object.get_cuisine_display }}</li>
+        </ul>
+    </body>
+</html>
